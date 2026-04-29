@@ -14,70 +14,67 @@ You don't just get an empty folder structure. This vault comes pre-loaded with S
 - **Sanitized Blueprints:** Actionable templates for `koin_di.md`, `mvvm_state.md`, `room3_configuration.md`, and `design_md_implementation.md`.
 - **Google Android Skills:** Automatically syncs with the official `android/skills` repository via Git submodules for authoritative navigation, performance, and UI guidance.
 
-## 🧠 The Architecture: Native MCP & Obsidian
+## 🧠 The Architecture
+This brain utilizes two components operating on the exact same local folder simultaneously:
 
-This brain utilizes a self-sustained native MCP server alongside Obsidian:
+1. **The MCP Server (Backend):** Acts as the headless bridge into your Android Studio AI. You can run this via **Tolaria** (a dedicated desktop app) or natively via **Node.js**.
+2. **Obsidian (GUI & Data Funnel):** Acts as your optional visualizer. You use it to view the knowledge graph and clip new Android documentation from the web directly into the vault.
 
-1. **Native Node MCP Server:** Acts as the headless backend. It runs a local file-system MCP server that bridges the markdown files directly into your Android Studio AI. Because it runs on Node.js, it is 100% compatible with Windows, macOS, and Linux.
-2. **Obsidian:** Acts as your optional GUI and data funnel. You use it to visualize the knowledge graph and clip new Android documentation from the web directly into the vault.
+---
 
 ## 🚀 Setup Guide
 
 ### 1. Initialize the Vault
-
 Clone the repository and pull the official Google skills submodule:
-
 ```bash
 git clone https://github.com/trinadhthatakula/AndroidAgenticWiki.git
 cd AndroidAgenticWiki
 git submodule update --init --recursive
 ```
 
-### 2. The Self-Sustained MCP Server
+### 2. Choose Your MCP Server Path
 
-This repository acts as its own MCP server. 
+**Option A: Tolaria (Recommended for macOS)**
+1. Download and install [Tolaria](https://github.com/refactoringhq/tolaria/releases).
+2. Open this repository folder as a Vault in Tolaria.
+3. Open Tolaria's Command Palette and search "Set Up External AI Tools" to copy your unique MCP Server Command path.
 
+**Option B: Native Node.js (Windows / Linux / CLI Preference)**
+This repository acts as its own MCP server.
 1. Ensure [Node.js](https://nodejs.org/) (v18+) is installed on your machine.
-2. Open a terminal in the root of the cloned repository.
-3. *(Optional)* To test that the server runs, execute:
-   ```bash
-   npm run mcp
-   ```
-   *(You should see it output JSON-RPC initialization logs. You can stop it with Ctrl+C).*
+2. Open a terminal in the root of the cloned repository and run `npm install`.
+3. To test the server, run `npm run mcp`. *(You can stop it with Ctrl+C after verifying it boots).*
 
 ### 3. IDE Integration (Android Studio)
-
 Wire the knowledge graph directly into your IDE:
-
 1. Open **Settings** (Windows/Linux) or **Preferences** (macOS).
 2. Navigate to **Plugins** > **AI** > **MCP Servers**.
 3. Click **Add Server** (+).
 4. **Name:** `AndroidAgenticWiki`
-5. **Executable / Command:** `npx`
-6. **Arguments:** `-y @modelcontextprotocol/server-filesystem /absolute/path/to/your/AndroidAgenticWiki`
-   *(Crucial: Replace the path with the actual absolute path to the cloned repository on your machine).*
-7. Restart the AI Assistant.
+5. **Configure the Command based on your choice in Step 2:**
+   * **If using Tolaria:** Paste the executable path copied from Tolaria into the Command field.
+   * **If using Node.js:** * Executable / Command: `npx`
+     * Arguments: `-y @modelcontextprotocol/server-filesystem /absolute/path/to/your/AndroidAgenticWiki` *(Replace with your actual absolute path).*
+6. Restart the AI Assistant.
 
 ### 4. Configure the Data Funnel (Obsidian)
-
 1. Download [Obsidian](https://obsidian.md/) and open the `AndroidAgenticWiki` folder as a vault.
 2. Install the [Obsidian Web Clipper](https://obsidian.md/clipper) browser extension.
 3. In the Web Clipper settings, go to **Templates** > **Default**.
 4. Set the **Folder** location to `inbox`.
 5. Add a new Property: Name = `status`, Value = `unprocessed`.
 
-## 🤖 Your First Prompt
+---
 
+## 🤖 Your First Prompt
 Once connected, open the AI chat in Android Studio and trigger the routing engine:
 
 > *"Based on the *`AGENTS.md`* routing in my AndroidAgenticWiki, create a new User Profile feature using the MVVM blueprint and Koin DI constraints."*
 
 ## 📥 How the Wiki Learns (The Ingestion Workflow)
-
 This repository is not a static template; it is a self-updating system. You can literally "teach" your agent new Android concepts, libraries, or architectural patterns without writing markdown yourself.
 
 When a new Android feature, library update, or architecture blog post is released:
-
 1. **Clip the Knowledge:** Use the Obsidian Web Clipper to save the raw Medium article or Android Developer doc directly into your `/inbox` folder.
 2. **Trigger the Brain:** Open Android Studio and tell your connected agent: *"Execute the runbook in workflows/ingest_docs.md on the unprocessed files in my inbox."*
 3. **Watch it Learn:** The agent will autonomously read the article, extract the strict engineering rules, update your `build_constraints.md` or `ui_standards.md`, write a fresh code blueprint in `/blueprints/`, and archive the raw document.
@@ -85,5 +82,4 @@ When a new Android feature, library update, or architecture blog post is release
 **Result:** The next time you ask the agent to build a feature, it will natively use the new architecture it just learned.
 
 ## ⚠️ Disclaimer
-
 The rules and blueprints provided in this repository are highly opinionated templates designed for modern, high-performance Android development. Every team is different. You are highly encouraged to fork this repository and modify the `/rules/` and `/blueprints/` directories to perfectly match your own tech stack and organizational standards.
