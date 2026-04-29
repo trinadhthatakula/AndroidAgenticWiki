@@ -1,0 +1,76 @@
+{
+    "serverInfo": {
+        "name": "android-agentic-wiki",
+        "version": "1.1.1",
+        "description": "A Git-backed knowledge graph and MCP server for Android development. Pre-loaded with Senior-level architectural constraints, Google Android Skills, and actionable Jetpack Compose blueprints."
+    },
+    "authentication": {
+        "required": false
+    },
+    "tools": [
+        {
+            "name": "read_file",
+            "description": "Reads the contents of a file, useful for reading rules and blueprints from the AndroidAgenticWiki.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Absolute path to the file to read"
+                    }
+                },
+                "required": ["path"]
+            }
+        },
+        {
+            "name": "write_file",
+            "description": "Writes content to a file in the AndroidAgenticWiki.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Absolute path to the file to write"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Content to write"
+                    }
+                },
+                "required": ["path", "content"]
+            }
+        },
+        {
+            "name": "list_directory",
+            "description": "Lists the contents of a directory within the AndroidAgenticWiki.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Absolute path to the directory to list"
+                    }
+                },
+                "required": ["path"]
+            }
+        },
+        {
+            "name": "search_files",
+            "description": "Search for files matching a pattern within the AndroidAgenticWiki.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Absolute path to the directory to search"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Search pattern"
+                    }
+                },
+                "required": ["path", "pattern"]
+            }
+        }
+    ]
+}
