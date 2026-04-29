@@ -23,7 +23,8 @@
         "clean-architecture"
     ],
     "bin": {
-        "android-wiki-setup": "./setup.js"
+        "android-wiki-setup": "./setup.js",
+        "create-android-agentic-wiki": "./cli.js"
     },
     "scripts": {
         "setup": "node setup.js",

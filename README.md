@@ -28,11 +28,21 @@ This brain utilizes two components operating on the exact same local folder simu
 
 
 ### 1. Initialize the Vault
-Clone the repository and pull the official Google skills submodule:
+
+**The easiest way (One-Click Setup via npx):**
+Simply run the following command in your terminal. It will automatically download the repository, initialize the Google skills submodules, and auto-configure your AI assistants (Claude, Gemini CLI, Codex):
+```bash
+npx create-android-agentic-wiki@latest my-android-brain
+```
+
+**Alternative (Manual Git Clone):**
+If you prefer to clone manually:
 ```bash
 git clone https://github.com/trinadhthatakula/AndroidAgenticWiki.git
 cd AndroidAgenticWiki
 git submodule update --init --recursive
+npm install
+npm run setup
 ```
 
 ### 2. Choose Your MCP Server Path
@@ -53,7 +63,9 @@ This repository acts as its own MCP server.
 You can wire the knowledge graph into your AI assistant using either our auto-setup script, UI configuration, or manual configuration depending on your client.
 
 **Method A: Auto-Setup (Claude Desktop, Claude Code, Gemini CLI, Codex)**
-If you use Claude Desktop, Claude Code, Gemini CLI, or Codex, you can automatically install the plugin by running the setup script in the root of the cloned repository:
+If you installed the vault using `npx create-android-agentic-wiki`, your IDEs are **already configured automatically**.
+
+If you cloned the repository manually, you can run the setup script in the root of the cloned repository:
 ```bash
 npm run setup
 ```
