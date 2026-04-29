@@ -28,7 +28,7 @@ This brain utilizes a self-sustained native MCP server alongside Obsidian:
 Clone the repository and pull the official Google skills submodule:
 
 ```bash
-git clone [https://github.com/trinadhthatakula/AndroidAgenticWiki.git](https://github.com/trinadhthatakula/AndroidAgenticWiki.git)
+git clone https://github.com/trinadhthatakula/AndroidAgenticWiki.git
 cd AndroidAgenticWiki
 git submodule update --init --recursive
 ```
