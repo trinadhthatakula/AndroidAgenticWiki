@@ -34,7 +34,7 @@ This brain utilizes two components operating on the exact same local folder simu
 **The easiest way (One-Click Setup via npx):**
 Simply run the following command in your terminal. It will automatically download the repository, initialize the Google skills submodules, and auto-configure your AI assistants (Claude, Gemini CLI, Codex):
 ```bash
-npx android-agentic-wiki@latest my-android-brain
+npx android-agentic-wiki@latest
 ```
 
 **Alternative (Manual Git Clone):**
