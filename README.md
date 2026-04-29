@@ -11,14 +11,14 @@ You don't just get an empty folder structure. This vault comes pre-loaded with S
 - **Build Rules (**`build_constraints.md`**):** Enforces AGP 9.2.0+, Compose BOM 2026.04.01, and strict declarative setups (banning the legacy `kotlin-android` plugin).
 - **UI Standards (**`ui_standards.md`**):** Mandates stable Material 3, Edge-to-Edge enforcement, and Compose `Modifier.graphicsLayer` performance rules.
 - **Architecture (**`architecture.md`**):** Teaches the agent to auto-detect and enforce strict Clean Architecture, MVVM, or MVI patterns based on your project structure.
-- **Sanitized Blueprints:** Actionable templates for `mvvm_state.md`, and `design_md_implementation.md`.
+- **Sanitized Blueprints:** Actionable templates for `koin_di.md`, `mvvm_state.md`, `room3_configuration.md`, and `design_md_implementation.md`.
 - **Google Android Skills:** Automatically syncs with the official `android/skills` repository via Git submodules for authoritative navigation, performance, and UI guidance.
 
-## 🧠 The Architecture: Tolaria & Obsidian
+## 🧠 The Architecture: Native MCP & Obsidian
 
-This brain utilizes two tools operating on the exact same local folder simultaneously:
+This brain utilizes a self-sustained native MCP server alongside Obsidian:
 
-1. **Tolaria:** Acts as the headless backend. It runs the local MCP server that bridges the markdown files directly into your Android Studio AI.
+1. **Native Node MCP Server:** Acts as the headless backend. It runs a local file-system MCP server that bridges the markdown files directly into your Android Studio AI. Because it runs on Node.js, it is 100% compatible with Windows, macOS, and Linux.
 2. **Obsidian:** Acts as your optional GUI and data funnel. You use it to visualize the knowledge graph and clip new Android documentation from the web directly into the vault.
 
 ## 🚀 Setup Guide
@@ -28,27 +28,35 @@ This brain utilizes two tools operating on the exact same local folder simultane
 Clone the repository and pull the official Google skills submodule:
 
 ```bash
-git clone https://github.com/trinadhthatakula/AndroidAgenticWiki.git
+git clone [https://github.com/trinadhthatakula/AndroidAgenticWiki.git](https://github.com/trinadhthatakula/AndroidAgenticWiki.git)
 cd AndroidAgenticWiki
 git submodule update --init --recursive
 ```
 
-### 2. Launch the MCP Server (Tolaria)
+### 2. The Self-Sustained MCP Server
 
-1. Download and install [Tolaria](https://github.com/refactoringhq/tolaria/releases).
-2. Open this repository folder as a Vault in Tolaria.
-3. Locate the **MCP Server Command** in Tolaria's Command Palette (e.g., search "Set Up External AI Tools" to get the path).
+This repository acts as its own MCP server. 
+
+1. Ensure [Node.js](https://nodejs.org/) (v18+) is installed on your machine.
+2. Open a terminal in the root of the cloned repository.
+3. *(Optional)* To test that the server runs, execute:
+   ```bash
+   npm run mcp
+   ```
+   *(You should see it output JSON-RPC initialization logs. You can stop it with Ctrl+C).*
 
 ### 3. IDE Integration (Android Studio)
 
 Wire the knowledge graph directly into your IDE:
 
-1. Open **Settings** (or **Preferences** on macOS).
+1. Open **Settings** (Windows/Linux) or **Preferences** (macOS).
 2. Navigate to **Plugins** > **AI** > **MCP Servers**.
 3. Click **Add Server** (+).
-4. Name: `AndroidAgenticWiki`.
-5. Command: Paste the Tolaria MCP command obtained in Step 2.
-6. Restart the AI Assistant.
+4. **Name:** `AndroidAgenticWiki`
+5. **Executable / Command:** `npx`
+6. **Arguments:** `-y @modelcontextprotocol/server-filesystem /absolute/path/to/your/AndroidAgenticWiki`
+   *(Crucial: Replace the path with the actual absolute path to the cloned repository on your machine).*
+7. Restart the AI Assistant.
 
 ### 4. Configure the Data Funnel (Obsidian)
 
