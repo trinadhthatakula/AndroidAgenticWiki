@@ -11,7 +11,7 @@ You don't just get an empty folder structure. This vault comes pre-loaded with S
 - **Build Rules (**`build_constraints.md`**):** Enforces AGP 9.2.0+, Compose BOM 2026.04.01, and strict declarative setups (banning the legacy `kotlin-android` plugin).
 - **UI Standards (**`ui_standards.md`**):** Mandates stable Material 3, Edge-to-Edge enforcement, and Compose `Modifier.graphicsLayer` performance rules.
 - **Architecture (**`architecture.md`**):** Teaches the agent to auto-detect and enforce strict Clean Architecture, MVVM, or MVI patterns based on your project structure.
-- **Sanitized Blueprints:** Actionable templates for `mvvm_state.md`, `room3_configuration.md`, and `design_md_implementation.md`.
+- **Sanitized Blueprints:** Actionable templates for `mvvm_state.md`, and `design_md_implementation.md`.
 - **Google Android Skills:** Automatically syncs with the official `android/skills` repository via Git submodules for authoritative navigation, performance, and UI guidance.
 
 ## 🧠 The Architecture: Tolaria & Obsidian
@@ -64,13 +64,17 @@ Once connected, open the AI chat in Android Studio and trigger the routing engin
 
 > *"Based on the *`AGENTS.md`* routing in my AndroidAgenticWiki, create a new User Profile feature using the MVVM blueprint and Koin DI constraints."*
 
-## 📥 The Ingestion Workflow
+## 📥 How the Wiki Learns (The Ingestion Workflow)
 
-When new Android features or blog posts are released, you can teach your agent automatically:
+This repository is not a static template; it is a self-updating system. You can literally "teach" your agent new Android concepts, libraries, or architectural patterns without writing markdown yourself.
 
-1. **Clip:** Use the Obsidian Web Clipper to send the raw article to your `/inbox`.
-2. **Execute:** Prompt your Android Studio AI: *"Execute the runbook in workflows/ingest_docs.md on the unprocessed files in the /inbox."*
-3. **Verify:** The agent will extract the new architectural rules into `/rules/`, generate a blueprint, and move the source to `/archive/`.
+When a new Android feature, library update, or architecture blog post is released:
+
+1. **Clip the Knowledge:** Use the Obsidian Web Clipper to save the raw Medium article or Android Developer doc directly into your `/inbox` folder.
+2. **Trigger the Brain:** Open Android Studio and tell your connected agent: *"Execute the runbook in workflows/ingest_docs.md on the unprocessed files in my inbox."*
+3. **Watch it Learn:** The agent will autonomously read the article, extract the strict engineering rules, update your `build_constraints.md` or `ui_standards.md`, write a fresh code blueprint in `/blueprints/`, and archive the raw document.
+
+**Result:** The next time you ask the agent to build a feature, it will natively use the new architecture it just learned.
 
 ## ⚠️ Disclaimer
 
