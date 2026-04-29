@@ -21,8 +21,11 @@ This brain utilizes two components operating on the exact same local folder simu
 2. **Obsidian (GUI & Data Funnel):** Acts as your optional visualizer. You use it to view the knowledge graph and clip new Android documentation from the web directly into the vault.
 
 ---
+> ⚠️ **CRITICAL WARNING: DO NOT DOWNLOAD THE ZIP FILE**
+> This repository relies on Git Submodules to synchronize the official Google Android Skills. If you use GitHub's "Download ZIP" feature, the `external_skills/` directory will be completely empty and the AI agent will fail to route correctly. **You must install this tool via Git clone.**
 
 ## 🚀 Setup Guide
+
 
 ### 1. Initialize the Vault
 Clone the repository and pull the official Google skills submodule:
