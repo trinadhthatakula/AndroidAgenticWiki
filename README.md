@@ -1,5 +1,7 @@
 # AndroidAgenticWiki
 
+[![npm version](https://img.shields.io/npm/v/android-agentic-wiki.svg?style=flat-square)](https://www.npmjs.com/package/android-agentic-wiki)
+
 A Git-backed knowledge graph and Model Context Protocol (MCP) server for Android development.
 
 Standard LLMs lack real-time awareness of the rapidly evolving Android ecosystem. **AndroidAgenticWiki** bridges this gap by serving as a "Long-Term Memory" vault. By connecting this repository to your IDE via MCP, your AI agent gains access to local constraints that override general training data with workspace-specific rules and official Google standards, eliminating hallucinations of deprecated APIs.
@@ -22,7 +24,7 @@ This brain utilizes two components operating on the exact same local folder simu
 
 ---
 > ⚠️ **CRITICAL WARNING: DO NOT DOWNLOAD THE ZIP FILE**
-> This repository relies on Git Submodules to synchronize the official Google Android Skills. If you use GitHub's "Download ZIP" feature, the `external_skills/` directory will be completely empty and the AI agent will fail to route correctly. **You must install this tool via Git clone.**
+> This repository relies on Git Submodules to synchronize the official Google Android Skills. If you use GitHub's "Download ZIP" feature, the `external_skills/` directory will be completely empty and the AI agent will fail to route correctly. **You must use the `npx` command or install via Git clone.**
 
 ## 🚀 Setup Guide
 
