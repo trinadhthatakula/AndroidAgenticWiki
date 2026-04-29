@@ -1,6 +1,6 @@
 {
     "name": "android-agentic-wiki",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "A Git-backed knowledge graph and Model Context Protocol (MCP) server plugin for Claude, Gemini CLI, Codex, and Android Studio.",
     "author": "Trinadh Thatakula <https://trinadhthatakula.com>",
     "license": "Apache-2.0",
@@ -23,8 +23,8 @@
         "clean-architecture"
     ],
     "bin": {
-        "android-wiki-setup": "./setup.js",
-        "create-android-agentic-wiki": "./cli.js"
+        "android-agentic-wiki": "./cli.js",
+        "android-wiki-setup": "./setup.js"
     },
     "scripts": {
         "setup": "node setup.js",
