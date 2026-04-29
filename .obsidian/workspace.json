@@ -178,6 +178,7 @@
   },
   "active": "04559c3124d484b3",
   "lastOpenFiles": [
+    "AndroidAgenticWiki",
     "my-android-brain/package-lock.json",
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/android/design/ui/ai-glasses/guides/interaction/inputs.md",
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/android/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/start-activity.md",
@@ -201,7 +202,6 @@
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/android/develop/xr/jetpack-xr-sdk",
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/android/design/ui",
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/android/develop/xr",
-    "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/android/develop",
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/titlechip-source.md",
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/titlechip-samples-source.md",
     "my-android-brain/external_skills/android-skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/surface-source.md",
