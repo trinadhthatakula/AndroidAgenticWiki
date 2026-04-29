@@ -50,9 +50,16 @@ This repository acts as its own MCP server.
 
 ### 3. IDE Integration & Configuration
 
-You can wire the knowledge graph into your AI assistant using either the UI or a standard JSON configuration file, depending on your client.
+You can wire the knowledge graph into your AI assistant using either our auto-setup script, UI configuration, or manual configuration depending on your client.
 
-**Method A: UI Configuration (Android Studio / IntelliJ)**
+**Method A: Auto-Setup (Claude Desktop, Claude Code, Gemini CLI, Codex)**
+If you use Claude Desktop, Claude Code, Gemini CLI, or Codex, you can automatically install the plugin by running the setup script in the root of the cloned repository:
+```bash
+npm run setup
+```
+*(This automatically configures `claude_desktop_config.json`, `~/.claude.json`, `~/.gemini/settings.json`, and `~/.codex/config.toml`).*
+
+**Method B: UI Configuration (Android Studio / IntelliJ)**
 1. Open **Settings** (Windows/Linux) or **Preferences** (macOS).
 2. Navigate to **Plugins** > **AI** > **MCP Servers**.
 3. Click **Add Server** (+).
@@ -62,7 +69,7 @@ You can wire the knowledge graph into your AI assistant using either the UI or a
    *(Crucial: Replace the path with the actual absolute path to the cloned repository).*
 7. Restart the AI Assistant.
 
-**Method B: JSON Configuration (Cursor, Claude Desktop, etc.)**
+**Method C: Manual Configuration (Cursor, Custom Clients)**
 If your AI client uses a JSON configuration file (e.g., `claude_desktop_config.json`), copy and paste the following block into your `mcpServers` object. 
 
 *Remember to replace `/absolute/path/to/your/AndroidAgenticWiki` with your actual local path.*
@@ -80,6 +87,13 @@ If your AI client uses a JSON configuration file (e.g., `claude_desktop_config.j
     }
   }
 }
+```
+
+For **Codex** (`~/.codex/config.toml`), use:
+```toml
+[mcp_servers."android-agentic-wiki"]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-filesystem", "/absolute/path/to/your/AndroidAgenticWiki"]
 ```
 
 ### 4. Configure the Data Funnel (Obsidian)

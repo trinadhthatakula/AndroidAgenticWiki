@@ -1,7 +1,7 @@
 {
     "name": "android-agentic-wiki",
-    "version": "1.0.0",
-    "description": "A Git-backed knowledge graph and Model Context Protocol (MCP) server for Android Studio.",
+    "version": "1.1.0",
+    "description": "A Git-backed knowledge graph and Model Context Protocol (MCP) server plugin for Claude, Gemini CLI, Codex, and Android Studio.",
     "author": "Trinadh Thatakula <https://trinadhthatakula.com>",
     "license": "Apache-2.0",
     "repository": {
@@ -22,11 +22,11 @@
         "knowledge-graph",
         "clean-architecture"
     ],
-    "scripts": {
-        "mcp": "npx -y @modelcontextprotocol/server-filesystem .",
-        "lint:design": "npx @google/design.md lint DESIGN.md"
+    "bin": {
+        "android-wiki-setup": "./setup.js"
     },
-    "devDependencies": {
-        "@google/design.md": "latest"
+    "scripts": {
+        "setup": "node setup.js",
+        "mcp": "npx -y @modelcontextprotocol/server-filesystem ."
     }
 }
