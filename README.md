@@ -48,17 +48,39 @@ This repository acts as its own MCP server.
 2. Open a terminal in the root of the cloned repository and run `npm install`.
 3. To test the server, run `npm run mcp`. *(You can stop it with Ctrl+C after verifying it boots).*
 
-### 3. IDE Integration (Android Studio)
-Wire the knowledge graph directly into your IDE:
+### 3. IDE Integration & Configuration
+
+You can wire the knowledge graph into your AI assistant using either the UI or a standard JSON configuration file, depending on your client.
+
+**Method A: UI Configuration (Android Studio / IntelliJ)**
 1. Open **Settings** (Windows/Linux) or **Preferences** (macOS).
 2. Navigate to **Plugins** > **AI** > **MCP Servers**.
 3. Click **Add Server** (+).
 4. **Name:** `AndroidAgenticWiki`
-5. **Configure the Command based on your choice in Step 2:**
-   * **If using Tolaria:** Paste the executable path copied from Tolaria into the Command field.
-   * **If using Node.js:** * Executable / Command: `npx`
-     * Arguments: `-y @modelcontextprotocol/server-filesystem /absolute/path/to/your/AndroidAgenticWiki` *(Replace with your actual absolute path).*
-6. Restart the AI Assistant.
+5. **Executable / Command:** `npx`
+6. **Arguments:** `-y @modelcontextprotocol/server-filesystem /absolute/path/to/your/AndroidAgenticWiki`
+   *(Crucial: Replace the path with the actual absolute path to the cloned repository).*
+7. Restart the AI Assistant.
+
+**Method B: JSON Configuration (Cursor, Claude Desktop, etc.)**
+If your AI client uses a JSON configuration file (e.g., `claude_desktop_config.json`), copy and paste the following block into your `mcpServers` object. 
+
+*Remember to replace `/absolute/path/to/your/AndroidAgenticWiki` with your actual local path.*
+
+```json
+{
+  "mcpServers": {
+    "android-agentic-wiki": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/absolute/path/to/your/AndroidAgenticWiki"
+      ]
+    }
+  }
+}
+```
 
 ### 4. Configure the Data Funnel (Obsidian)
 1. Download [Obsidian](https://obsidian.md/) and open the `AndroidAgenticWiki` folder as a vault.
