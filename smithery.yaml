@@ -1,0 +1,18 @@
+# smithery.yaml
+version: "1.1.1"
+packageType: "npm"
+packageName: "android-agentic-wiki"
+name: "android-agentic-wiki"
+description: "A Git-backed knowledge graph and MCP server for Android development."
+# This section tells Smithery exactly how to run it locally
+install:
+  command: "npx"
+  args: ["-y", "android-agentic-wiki"]
+# This bypasses the need for Smithery to "discover" tools via scanning
+tools:
+  - name: "read_file"
+    description: "Reads rules and blueprints from the Wiki."
+    inputSchema:
+      type: "object"
+      properties:
+        path: { "type": "string" }
